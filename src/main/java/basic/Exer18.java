@@ -20,15 +20,15 @@ public class Exer18 {
                 {"I", "1"}
         };
         int result = 0;
-        int index = 0;
+        int index;
 
-        for (int i = 0; i < rules.length; i++) {
-            index = romanNumber.indexOf(rules[i][0]);
+        for (String[] i : rules) {
+            index = romanNumber.indexOf(i[0]);
 
             while (index != -1) {
-                result += Integer.parseInt(rules[i][1]);
-                romanNumber = romanNumber.replaceFirst(rules[i][0], "");
-                index = romanNumber.indexOf(rules[i][0]);
+                result += Integer.parseInt(i[1]);
+                romanNumber = romanNumber.replaceFirst(i[0], "");
+                index = romanNumber.indexOf(i[0]);
             }
         }
         return result;
