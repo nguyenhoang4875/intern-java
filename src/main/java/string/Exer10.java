@@ -7,6 +7,10 @@ public class Exer10 {
     }
 
     public int getNumber(String number) {
-        return number.chars().reduce(0, (a, b) -> 10 * a + b - '0');
+        int result = 0;
+        for (int i = 0; i < number.length(); i++) {
+            result = result * 10 + number.charAt(i) - '0';
+        }
+        return result;
     }
 }
