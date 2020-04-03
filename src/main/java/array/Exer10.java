@@ -1,17 +1,13 @@
 package array;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class Exer10 {
 
-    public List<Integer> insertInOrder(int[] array, int n) {
-        List<Integer> listResult = new LinkedList<>();
+    public int[] insertInOrder(int[] array, int n) {
+        int[] result = new int[array.length + 1];
         int index = 0;
         if (n > array[array.length - 1]) {
             index = array.length;
         } else {
-
             for (int i = 0; i < array.length; i++) {
                 if (n < array[i]) {
                     index = i;
@@ -20,10 +16,15 @@ public class Exer10 {
             }
         }
 
-        for (int i : array) {
-            listResult.add(i);
+        for (int i = 0; i < result.length; i++) {
+            if (i < index) {
+                result[i] = array[i];
+            } else if (i > index) {
+                result[i] = array[i - 1];
+            } else {
+                result[i] = n;
+            }
         }
-        listResult.add(index, n);
-        return listResult;
+        return result;
     }
 }
