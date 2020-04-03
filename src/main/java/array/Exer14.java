@@ -7,7 +7,6 @@ public class Exer14 {
             return (matrix[0][0]);
         }
         int sum = 0;
-        int s;
 
         for (int i = 0; i < matrix.length; i++) {
             int[][] smaller = new int[matrix.length - 1][matrix.length - 1];
@@ -22,8 +21,12 @@ public class Exer14 {
                     }
                 }
             }
-            s = (i % 2 == 0) ? 1 : -1;
-            sum += s * matrix[0][i] * (determinant(smaller));
+            if (i % 2 == 0) {
+                sum += matrix[0][i] * (determinant(smaller));
+            } else {
+                sum -= matrix[0][i] * (determinant(smaller));
+
+            }
         }
         return sum;
     }
