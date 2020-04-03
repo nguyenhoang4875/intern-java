@@ -7,24 +7,15 @@ public class Exer13 {
             return matrix;
         }
         int[][] result = new int[matrix.length - 1][matrix[0].length - 1];
+        int m;
 
-        for (int i = 0; i < matrix.length - 1; i++) {
+        for (int i = 0; i < result.length; i++) {
+            m = i < row ? i : i + 1;
+            int n;
 
-            for (int j = 0; j < matrix[0].length - 1; j++) {
-                if (i < row) {
-                    if (j < col) {
-                        result[i][j] = matrix[i][j];
-                    } else {
-                        result[i][j] = matrix[i][j + 1];
-                    }
-                } else {
-                    if (j < col) {
-                        result[i][j] = matrix[i + 1][j];
-                    } else {
-
-                        result[i][j] = matrix[i + 1][j + 1];
-                    }
-                }
+            for (int j = 0; j < result[0].length; j++) {
+                n = j < col ? j : j + 1;
+                result[i][j] = matrix[m][n];
             }
         }
         return result;
