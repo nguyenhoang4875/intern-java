@@ -2,40 +2,36 @@ package oop;
 
 public class StackNumber {
     private int[] stack;
+    private int count;
 
     public StackNumber() {
-        stack = new int[0];
+        stack = new int[100];
     }
 
     public StackNumber(int[] array) {
-        stack = new int[array.length];
+        stack = new int[100];
+        count = array.length - 1;
         clone(array, stack);
     }
 
     public int push(int item) {
-        int[] temp = new int[stack.length];
-        clone(stack, temp);
-        stack = new int[stack.length + 1];
-        clone(temp, this.stack);
-        stack[stack.length - 1] = item;
+        stack[++count] = item;
         return item;
     }
 
     public int pop() {
-        int[] temp = new int[stack.length];
-        clone(stack, temp);
-        stack = new int[stack.length - 1];
-        clone(temp, this.stack);
-        return temp[stack.length];
+        int temp = stack[count];
+        stack[count] = 0;
+        return temp;
     }
 
     public int peek() {
-        return stack[stack.length - 1];
+        return stack[count];
     }
 
     public int search(int item) {
 
-        for (int i = 0; i < stack.length; i++) {
+        for (int i = 0; i <= count; i++) {
             if (item == stack[i]) {
                 return i;
             }
@@ -44,17 +40,16 @@ public class StackNumber {
     }
 
     public boolean empty() {
-        return stack.length == 0;
+        return count == 0;
     }
 
     public int size() {
-        return stack.length;
+        return count == 0 ? 0 : ++count;
     }
 
     public void clone(int[] src, int[] des) {
-        int lengthMin = src.length <= des.length ? src.length : des.length;
 
-        for (int i = 0; i < lengthMin; i++) {
+        for (int i = 0; i < src.length; i++) {
             des[i] = src[i];
         }
     }
