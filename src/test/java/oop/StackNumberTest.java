@@ -12,12 +12,12 @@ public class StackNumberTest {
         Assert.assertEquals(new StackNumber().size(),0);
 
         StackNumber stackNumber = new StackNumber();
-        stackNumber.push(1);
-        stackNumber.push(2);
-        stackNumber.push(3);
-        Assert.assertEquals(stackNumber.size(),3);
-        Assert.assertEquals(stackNumber.peek(),3);
-        Assert.assertEquals(stackNumber.pop(),3);
+        for (int i = 0; i <100 ; i++) {
+           stackNumber.push(i);
+        }
+        Assert.assertEquals(stackNumber.size(),100);
+        Assert.assertEquals(stackNumber.peek(),99);
+        Assert.assertEquals(stackNumber.pop(),99);
         Assert.assertFalse(stackNumber.empty());
     }
 }

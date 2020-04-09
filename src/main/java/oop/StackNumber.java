@@ -9,16 +9,17 @@ public class StackNumber {
     }
 
     public int push(int item) {
-        stack[++count] = item;
+        stack[count] = item;
+        count++;
         return item;
     }
 
     public int pop() {
-        return stack[count--];
+        return stack[--count];
     }
 
     public int peek() {
-        return stack[count];
+        return stack[count-1];
     }
 
     public boolean empty() {
