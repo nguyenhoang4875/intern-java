@@ -1,22 +1,32 @@
 package array;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Exer15 {
 
     public List<Integer> reduceArray(int[] array, int k) {
-        List<Integer> result = new ArrayList<>();
         if (k <= 0) {
-            return result;
+            return Collections.emptyList();
         }
-        result = IntStream.of(array).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
-        if (k >= array.length) {
-            return result;
+
+        for (int i = 0; i < array.length - 1; i++) {
+
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] < array[j]) {
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
         }
-        return result.stream().limit(k).collect(Collectors.toList());
+        k = k > array.length ? array.length : k;
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < k; i++) {
+            result.add(array[i]);
+        }
+        return result;
     }
 }
