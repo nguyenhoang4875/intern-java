@@ -1,25 +1,26 @@
 
 package oop;
 
-public class Stack {
-    private Object[] stack;
+public class Stack<T> {
+    private T[] stack;
     private int count;
 
     public Stack() {
-        stack = new Object[100];
+        stack = (T[]) new Object[100];
     }
 
-    public Object push(Object item) {
-        stack[++count] = item;
+    public T push(T item) {
+        stack[count] = item;
+        count++;
         return item;
     }
 
-    public Object pop() {
-        return stack[count--];
+    public T pop() {
+        return stack[--count];
     }
 
-    public Object peek() {
-        return stack[count];
+    public T peek() {
+        return stack[count - 1];
     }
 
     public boolean empty() {
@@ -27,6 +28,6 @@ public class Stack {
     }
 
     public int size() {
-        return count == 0 ? 0 : ++count;
+        return count;
     }
 }
