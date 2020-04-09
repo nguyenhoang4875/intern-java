@@ -26,6 +26,6 @@ public class StackNumber {
     }
 
     public int size() {
-        return count == 0 ? 0 : ++count;
+        return count;
     }
 }
