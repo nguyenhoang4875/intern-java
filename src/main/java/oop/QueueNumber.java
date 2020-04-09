@@ -9,10 +9,8 @@ public class QueueNumber {
         queue = new int[100];
     }
 
-    public int offer(int item) {
-        queue[tail] = item;
-        tail++;
-        return item;
+    public void offer(int item) {
+        queue[tail++] = item;
     }
 
     public int poll() {
