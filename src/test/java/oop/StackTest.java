@@ -7,7 +7,6 @@ public class StackTest {
 
     @Test
     public void test_push() {
-        Assert.assertEquals(new Stack().push(1), 1);
         Assert.assertTrue(new Stack().empty());
         Assert.assertEquals(new Stack().size(), 0);
 

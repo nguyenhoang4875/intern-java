@@ -9,10 +9,8 @@ public class Stack<T> {
         stack = (T[]) new Object[100];
     }
 
-    public T push(T item) {
-        stack[count] = item;
-        count++;
-        return item;
+    public void push(T item) {
+        stack[count++] = item;
     }
 
     public T pop() {
