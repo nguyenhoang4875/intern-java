@@ -3,7 +3,6 @@
     "id": 2,
     "firstName": "ti",
     "lastName": "le",
-    "birthday": null,
     "className": "Math",
     "address": "QN"
   },
@@ -11,7 +10,6 @@
     "id": 3,
     "firstName": "bin",
     "lastName": "le",
-    "birthday": null,
     "className": "Physic",
     "address": "QN"
   }

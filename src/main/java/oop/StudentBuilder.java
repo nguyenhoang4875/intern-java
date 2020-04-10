@@ -1,8 +1,9 @@
 package oop;
 
-import java.util.Date;
-
 public class StudentBuilder extends Student {
+
+    public StudentBuilder() {
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -24,10 +25,7 @@ public class StudentBuilder extends Student {
         this.address = address;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
     public Student build() {
-        return new Student(id, firstName, lastName,  className, address);
+        return new Student(id, firstName, lastName, className, address);
     }
 }

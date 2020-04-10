@@ -1,6 +1,7 @@
 package oop;
 
 import java.util.Date;
+import java.util.Objects;
 
 
 public class Student {
@@ -47,14 +48,6 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
     public String getClassName() {
         return className;
     }
@@ -70,6 +63,20 @@ public class Student {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id &&
+                Objects.equals(firstName, student.firstName) &&
+                Objects.equals(lastName, student.lastName) &&
+                Objects.equals(birthday, student.birthday) &&
+                Objects.equals(className, student.className) &&
+                Objects.equals(address, student.address);
+    }
+
 
     @Override
     public String toString() {
