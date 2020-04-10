@@ -13,14 +13,12 @@ public class Exer20 {
     }
 
     public boolean isHappyNumber(int n) {
-        int slow, fast;
-        slow = fast = n;
+        int child = n;
 
         do {
-            slow = numSquareSum(slow);
-            fast = numSquareSum(numSquareSum(fast));
+            child = numSquareSum(child);
         }
-        while (slow != fast);
-        return (slow == 1);
+        while (child != 1 && child != 4 && child != 0);
+        return child == 1;
     }
 }
