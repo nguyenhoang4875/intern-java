@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "firstName": "ti",
+    "lastName": "le",
+    "className": "History",
+    "address": "QN"
+  },
+  {
+    "id": 2,
+    "firstName": "teo",
+    "lastName": "le",
+    "className": "Math",
+    "address": "QN"
+  },
+  {
+    "id": 3,
+    "firstName": "na",
+    "lastName": "le",
+    "className": "Physic",
+    "address": "QN"
+  }
+]
