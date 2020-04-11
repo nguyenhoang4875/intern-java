@@ -4,37 +4,25 @@ public class Exer10 {
 
     public String sumNumbers(String num1, String num2) {
         StringBuilder result = new StringBuilder();
-        int lenStr1 = num1.length();
-        int lenStr2 = num2.length();
-        String maxNumLen;
-        String minNumLen;
-        if (lenStr1 >= lenStr2) {
-            maxNumLen = new StringBuilder(num1).reverse().toString();
-            minNumLen = new StringBuilder(num2).reverse().toString();
-        } else {
-            maxNumLen = new StringBuilder(num2).reverse().toString();
-            minNumLen = new StringBuilder(num1).reverse().toString();
-        }
+        int maxLen = num1.length() >= num2.length() ? num1.length() : num2.length();
         int temp;
         int carry = 0;
 
-        for (int i = 0; i < minNumLen.length(); i++) {
-            temp = maxNumLen.charAt(i) - '0' + minNumLen.charAt(i) - '0';
+        for (int i = 0; i < maxLen; i++) {
+            temp = digitFromRight(num1, i) + digitFromRight(num2, i);
             result.append((temp % 10 + carry) % 10);
             carry = (temp + carry) / 10;
         }
-        if (maxNumLen.length() > minNumLen.length()) {
-
-            for (int i = minNumLen.length(); i < maxNumLen.length(); i++) {
-                if (carry != 0) {
-                    temp = maxNumLen.charAt(i) - '0' + carry;
-                    result.append(temp % 10 + carry);
-                    carry = temp / 10;
-                } else {
-                    result.append(maxNumLen.charAt(i) - '0');
-                }
-            }
+        if (carry > 0) {
+            result.append(carry);
         }
         return result.reverse().toString();
+    }
+
+    public int digitFromRight(String number, int index) {
+        if (index >= number.length()) {
+            return 0;
+        }
+        return number.charAt(number.length() - 1 - index) - '0';
     }
 }
